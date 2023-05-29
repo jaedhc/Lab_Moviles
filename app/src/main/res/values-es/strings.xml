@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">labb</string>
+    <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="Sin_Cuenta">¿Sin Cuenta?, Registrate</string>
+    <string name="usuario">Email</string>
+    <string name="Nombre">Nombre de Usuario</string>
+    <string name="Contrasenia">Contraseña</string>
+    <string name="Comentario">Comentario</string>
+    <string name="Repetir_contrasenia">Repetir contraseña</string>
+    <string name= "Cambiar_Idioma">Cambiar Idioma</string>
+    <string name= "Admin_Users">Administrar Usuarios</string>
+    <string name="NombreC">Nombre</string>
+    <string name="CorreoC">Email</string>
+    <string name="Type">Tipo de Usuario</string>
+    <string name="Save_C">Guardar Cambios</string>
+</resources>
