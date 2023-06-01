@@ -34,20 +34,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023"
-        android:textSize="10sp"/>
+        android:textSize="11sp"/>
+
+    <Button
+        android:id="@+id/btnchatTexto"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/gray"
+        android:text="Chat"
+        android:visibility="gone"
+        android:textColor="@color/black"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnchat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnchat"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="120dp"
         android:backgroundTint="@color/gray"
         android:text="Video Chat"
+        android:layout_marginBottom="20dp"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/cursos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
+
 
     <!--Diseño de la pantalla HOme-->
 

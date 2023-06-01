@@ -71,9 +71,8 @@ class MetasActivity : AppCompatActivity() {
       for (document in it){
         ingresoReporte = document.get("ingresos").toString()
         balanceReporte = document.get("balance").toString()
-        ingresoFecha = "25/7/23"//document.getString("correo").toString()
+        ingresoFecha = document.getString("fecha").toString()
         documentReporte = document.id
-        print("fort")
         reporteList.add(ListaReports(ingresoReporte, balanceReporte, ingresoFecha, documentReporte))
         initRecyclerView(reporteList)
       }

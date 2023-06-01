@@ -77,6 +77,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(irplataformas)
         }
 
+        val btnChat = findViewById<Button>(R.id.btnchatTexto)
+        btnChat.setOnClickListener{
+            val chatTexto = Intent(this, TextChatActivity::class.java)
+            startActivity(chatTexto)
+        }
+
 
 
     }

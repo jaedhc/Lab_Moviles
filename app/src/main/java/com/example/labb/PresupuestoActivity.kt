@@ -13,6 +13,9 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.ktx.Firebase
+import okhttp3.internal.format
+import java.text.SimpleDateFormat
+import java.util.*
 
 class PresupuestoActivity : AppCompatActivity() {
   private lateinit var auth: FirebaseAuth
@@ -77,6 +80,7 @@ class PresupuestoActivity : AppCompatActivity() {
     val db = FirebaseFirestore.getInstance()
     val collection = db.collection("Reportes")
     var correo:String = ""
+    var fecha = " "
     val id = System.currentTimeMillis().toInt()
 
     auth = Firebase.auth
@@ -85,7 +89,12 @@ class PresupuestoActivity : AppCompatActivity() {
     } else {
       currentuser.email?.let { correo = it }
     }
-    val hashMap = hashMapOf("ingresos" to ingresos, "gastos" to gastos, "balance" to balance, "correo" to correo)
+
+    val sdf = SimpleDateFormat("dd/MM/yyyy", Locale("es", "ES"))
+    sdf.timeZone = TimeZone.getTimeZone("UTC-6")
+    fecha = sdf.format(Date())
+
+    val hashMap = hashMapOf("ingresos" to ingresos, "gastos" to gastos, "balance" to balance, "correo" to correo, "fecha" to fecha)
     collection.document(id.toString()).set(hashMap, SetOptions.merge()).addOnSuccessListener {
       Toast.makeText(
         this,

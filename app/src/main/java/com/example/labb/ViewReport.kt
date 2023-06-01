@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -51,17 +52,19 @@ class ViewReport : AppCompatActivity() {
         var ingReporte:String
         var balReporte:String
         var gasReporte:String
+        var fechaReporte:String
 
 
         collection.document(id).get().addOnSuccessListener {
             ingReporte = it.get("ingresos").toString()
             balReporte = it.get("balance").toString()
             gasReporte = it.get("gastos").toString()
-            setData(ingReporte, balReporte, gasReporte)
+            fechaReporte = it.getString("fecha").toString()
+            setData(ingReporte, balReporte, gasReporte, fechaReporte)
         }
     }
 
-    private fun setData(ingresos:String, balance:String, gastos:String){
+    private fun setData(ingresos:String, balance:String, gastos:String, fecha:String){
         val txtIngresos = findViewById<EditText>(R.id.edt_ingresos)
         txtIngresos.setText(ingresos)
 
@@ -70,6 +73,9 @@ class ViewReport : AppCompatActivity() {
 
         val txtGastos = findViewById<EditText>(R.id.edt_gastos)
         txtGastos.setText(gastos)
+
+        val txtFecha = findViewById<TextView>(R.id.tvFecha)
+        txtFecha.setText(fecha)
 
     }
 }

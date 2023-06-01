@@ -18,6 +18,9 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".TextChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".ViewReport"
             android:exported="false" />
         <activity
