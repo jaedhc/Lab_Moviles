@@ -15,17 +15,26 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import java.util.*
 
 class LoginActivity : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
     lateinit var mBtn: Button
+    val storageRef = FirebaseStorage.getInstance().reference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loadLocate()
         setContentView(R.layout.activity_login)
+
+        auth = Firebase.auth
+        val currentUser = auth.currentUser
+
+        if(currentUser != null){
+            callMain()
+        }
 
         val btnRegistro:TextView = findViewById(R.id.txt_registro)
         val correo:EditText = findViewById(R.id.edt_usuario)
@@ -117,8 +126,8 @@ class LoginActivity : AppCompatActivity() {
                 val verifica = usuario?.isEmailVerified
                 if (verifica == true){
                     edit?.putString("prefUser", correo)?.commit()
+                    getImage(correo)
                     edit?.apply()
-                    startActivity(Intent(this, MainActivity::class.java))
 
                 } else {
                 Toast.makeText(this, "No ha verificado su correo", Toast.LENGTH_LONG).show()
@@ -131,9 +140,37 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    private fun getImage(email:String){
+        var imagesRef = storageRef.child("fotos").child(email)
+        var url = "https://firebasestorage.googleapis.com/v0/b/jairohw-f9dc0.appspot.com/o/fotos%2Fuser.png?alt=media&token=0cd8afb8-0dc5-48b3-942a-2eaf529d82b8"
+        imagesRef.downloadUrl.addOnSuccessListener {
+            url = it.toString()
+            val sharedPref = applicationContext.getSharedPreferences("user", Context.MODE_PRIVATE)
+            var edit = sharedPref?.edit()
+            sharedPref?.edit()?.putString("prefUrl", url)?.commit()
+            edit?.apply()
+            startActivity(Intent(this, MainActivity::class.java))
+        }.addOnFailureListener {
+            val sharedPref = applicationContext.getSharedPreferences("user", Context.MODE_PRIVATE)
+            var edit = sharedPref?.edit()
+            sharedPref?.edit()?.putString("prefUrl", url)?.commit()
+            edit?.apply()
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+
+    }
+
+
+
     private fun validateEmail(email:String):Boolean{
         val pattern = Patterns.EMAIL_ADDRESS
         return pattern.matcher(email).matches()
+    }
+
+    private fun callMain(){
+        val main = Intent(this, MainActivity::class.java)
+        startActivity(main)
+        finish()
     }
 
     override fun onBackPressed() {

@@ -4,6 +4,237 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ViewReport">
+
+
+
+    <!-- Guia vertical -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gLinea10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gLinea90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9"
+        />
+
+    <!--Titulo de la pantalla-->
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Presupuesto"
+        android:layout_marginTop="40sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="40sp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/gLinea10"
+        app:layout_constraintEnd_toEndOf="@+id/gLinea90"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ingresos"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+
+            <EditText
+                android:id="@+id/edt_ingresos"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:background="@color/gray"
+                android:inputType="numberDecimal"
+                android:focusable="false"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gastos"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+
+            <EditText
+                android:id="@+id/edt_gastos"
+                android:layout_width="150dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:background="@color/gray"
+                android:inputType="numberDecimal"
+                android:focusable="false"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Balance"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+            <EditText
+                android:id="@+id/edt_balance"
+                android:layout_width="150dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:background="@color/gray"
+                android:focusable="false"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--Card de la home-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/home"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="0dp"
+        app:cardBackgroundColor="@color/background_app"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/cursos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/btn_home"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/home"
+                app:tint="@color/white" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
+
+    <!--Card de los cursos-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cursos"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        app:cardBackgroundColor="@color/background_app"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/lecciones"
+        app:layout_constraintStart_toEndOf="@+id/home"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/btn_metas"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/ic_metas"
+                app:tint="@color/white" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
+
+    <!--Card de las lecciones-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/lecciones"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        app:cardBackgroundColor="@color/background_app"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/herramientas"
+        app:layout_constraintStart_toEndOf="@+id/cursos"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/btn_presupuesto"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/ic_presupuesto"
+                app:tint="@color/teal_200" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
+
+    <!--Card de las herramientas-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/herramientas"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        app:cardBackgroundColor="@color/background_app"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lecciones"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/btn_plataformas"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/ic_plataformas"
+                app:tint="@color/white" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

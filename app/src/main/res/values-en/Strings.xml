@@ -15,4 +15,7 @@
     <string name="CorreoC">Email</string>
     <string name="Type">User Type</string>
     <string name="Save_C">Save</string>
+
+    <string name="def_url_img">https://firebasestorage.googleapis.com/v0/b/jairohw-f9dc0.appspot.com/o/fotos%2Fuser.png?alt=media&amp;token=0cd8afb8-0dc5-48b3-942a-2eaf529d82b8</string>
+
 </resources>

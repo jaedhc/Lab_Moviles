@@ -70,31 +70,22 @@
 
     <!--Card de la foto del usuario-->
     <androidx.cardview.widget.CardView
-        android:id="@+id/Foto"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginBottom="40dp"
-        app:cardBackgroundColor="@color/teal_200"
-        app:cardCornerRadius="60dp"
-        app:layout_constraintStart_toStartOf="@id/NombreUsuario"
-        app:layout_constraintEnd_toEndOf="@id/NombreUsuario"
-        app:layout_constraintBottom_toTopOf="@id/NombreUsuario">
+        android:id="@+id/card_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="70dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/NombreUsuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAllCaps="true"
-                android:text="Usuario"
-                />
-
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
+        <ImageView
+            android:id="@+id/image_user"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:adjustViewBounds="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:scaleType="centerCrop" />
 
 
     </androidx.cardview.widget.CardView>
